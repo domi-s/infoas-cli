@@ -225,6 +225,11 @@ def build_parser():
 
 
 def main(argv=None):
+    # On Windows, output that isn't a console (a pipe, Claude Code) uses the locale encoding,
+    # e.g. cp1252, which can't print Romanian letters
+    for stream in (sys.stdout, sys.stderr):
+        stream.reconfigure(encoding='utf-8')
+
     args = build_parser().parse_args(argv)
 
     try:
