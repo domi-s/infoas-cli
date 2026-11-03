@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "infoas-cli"
+version = "1.0"
+description = "Solve InfoAs problems from the terminal"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = ["requests"]
+
+[project.scripts]
+infoas = "infoas_cli.main:main"
+
+[tool.setuptools]
+packages = ["infoas_cli"]
